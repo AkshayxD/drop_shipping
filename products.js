@@ -63,5 +63,18 @@ const products = [
             "https://images.meesho.com/images/products/166362553/tygzh_512.jpg",
             "https://images.meesho.com/images/products/166362553/spaop_512.jpg"
         ]
+    },
+    {
+        "id": "fya0ka",
+        "name": "Feng Shui Metal Wind Chime",
+        "category": "Decor",
+        "price": "\u20b9499",
+        "description": "Invite tranquility into your home with this premium Feng Shui Metal Wind Chime. Crafted with precision, its melodic tones create a peaceful ambiance, making it a perfect decorative piece for your garden, balcony, or living space.",
+        "image": "https://images.meesho.com/images/products/964566874/lau0b_512.jpg",
+        "images": [
+            "https://images.meesho.com/images/products/964566874/lau0b_512.jpg",
+            "https://images.meesho.com/images/products/964566874/xqntb_512.jpg",
+            "https://images.meesho.com/images/products/964566874/ootzs_512.jpg"
+        ]
     }
 ];
