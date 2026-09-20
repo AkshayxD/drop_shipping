@@ -1,36 +1,28 @@
-// Placeholder Curated Products using Unsplash luxury images
+// Curated Products for Lumina Store
 const products = [
     {
         id: 1,
-        name: "Handcrafted Kerala Boat Metal Showpiece",
-        category: "Showpieces",
-        price: "₹1,499",
-        description: "An exquisite metal showpiece inspired by the traditional Kerala snake boats. Handcrafted by artisans, it adds a touch of royal heritage to any living space.",
-        image: "https://images.meesho.com/images/products/537185017/1_512.webp"
+        name: "Zen Monk Figurine Set (4 Pieces)",
+        category: "Figurines",
+        price: "₹499",
+        description: "A charming set of 4 handcrafted resin monk figurines, each in a unique meditative pose. Perfect for tabletop decoration, these miniature monks bring serenity and a touch of Zen philosophy to your living space. Made from premium quality resin with fine detailing.",
+        image: "https://images.meesho.com/images/products/400197189/7yhqs_512.webp"
     },
     {
         id: 2,
-        name: "Rajasthani Musician Showpiece (Set of 2)",
+        name: "Kerala Boat Metal Showpiece with Pen Stand",
         category: "Showpieces",
-        price: "₹1,299",
-        description: "A beautiful set of two iron handpainted musicians that celebrate Indian classical art. Perfect for elevating your home decor with cultural elegance.",
-        image: "https://images.meesho.com/images/products/254543953/1_512.webp"
+        price: "₹999",
+        description: "Sail into culture with this handcrafted Kerala boat showpiece – complete with traditional paddlers and a built-in metal pen stand. A unique piece of ethnic desk decor, this golden-tone boat blends traditional artistry with daily utility. Dimensions: 10x8 inch.",
+        image: "https://images.meesho.com/images/products/537185017/0wami_512.webp"
     },
     {
         id: 3,
-        name: "Black Gold Buddha Statue",
-        category: "Showpieces",
+        name: "Golden Human Face Sculpture – Resting on Hands",
+        category: "Sculptures",
         price: "₹899",
-        description: "Bring tranquility and minimalist luxury to your home with this Black Gold Buddha statue. Designed to inspire peace and mindfulness.",
-        image: "https://images.meesho.com/images/products/87402599/1_512.webp"
-    },
-    {
-        id: 4,
-        name: "Seven Chakra Crystal Energy Tree",
-        category: "Showpieces",
-        price: "₹799",
-        description: "A stunning decorative crystal tree designed to channel positive energy and balance. Hand-wired with natural healing stones on a sturdy base.",
-        image: "https://images.meesho.com/images/products/239027670/1_512.webp"
+        description: "Transform your living space with this stunning golden resin human face statue, depicted peacefully sleeping on hands. A symbol of relaxation and inner peace, this handcrafted polyresin showpiece makes a meaningful gift for housewarmings, weddings, and special occasions. Size: 14×8×21 cm.",
+        image: "https://images.meesho.com/images/products/533401170/wru59_512.webp"
     }
 ];
 
