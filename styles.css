@@ -451,19 +451,25 @@ footer {
 
 /* Responsive */
 @media (max-width: 900px) {
+    .modal {
+        padding: 1rem;
+        align-items: flex-start; /* Start from top so it doesn't get clipped on small screens */
+        overflow-y: auto;
+    }
+    .modal-content {
+        flex-direction: column;
+        max-height: none; /* Let it grow to fit content */
+        overflow-y: visible;
+        margin: auto; /* Center if shorter than screen */
+    }
     .modal-body {
         flex-direction: column;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+        overflow-y: visible;
     }
     .modal-image-container {
         height: 350px;
         min-height: 350px;
         flex: none;
-    }
-    .modal-content {
-        max-height: 95vh;
-        overflow: hidden;
     }
     .modal-details {
         padding: 2rem;
