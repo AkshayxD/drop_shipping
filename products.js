@@ -76,5 +76,33 @@ const products = [
             "https://images.meesho.com/images/products/964566874/xqntb_512.jpg",
             "https://images.meesho.com/images/products/964566874/ootzs_512.jpg"
         ]
+    },
+    {
+        "id": "4d5xp5",
+        "name": "De Casa Decor Hot New Geometric Golden Tea Light Candle Holder Showpiece with Gold glass",
+        "category": "Decor",
+        "price": "\u20b9499",
+        "description": "Name: De Casa Decor Hot New Geometric Golden Tea Light Candle Holder Showpiece with Gold glass\nMaterial: Iron\nType: Figurines\nNet Quantity (N): 1\nProduct Length: 16 cm\nProduct Height: 16 cm\nProduct Breadth: 9 cm\nThis flower vase is made from one Piece of Iron with unique Decorative design. raditional Design Very appealing and Eye Catching Package contains -1pc Flower vase without Flowers.Good-quality and stylish products.Flowers are for illustration purpose not with Vase. Size: Length \u201316CM; Width -12 CM; Height - 22 CM | Material; Metallic Good-quality and stylish products.Flowers are for illustration purpose not with Vase.Great for gifting during weddings, anniversaries, house warming ceremonies, new venture, award ceremonies etc.\n\nCountry of Origin: India",
+        "image": "https://images.meesho.com/images/products/263976665/hca9l_512.jpg",
+        "images": [
+            "https://images.meesho.com/images/products/263976665/hca9l_512.jpg",
+            "https://images.meesho.com/images/products/263976665/mgsws_512.jpg",
+            "https://images.meesho.com/images/products/263976665/6bqc9_512.jpg",
+            "https://images.meesho.com/images/products/263976665/a8kso_512.jpg"
+        ]
+    },
+    {
+        "id": "6jkkx6",
+        "name": "Seven Chakra Tree Vastu Crystal Stone Bonsai Money Lucky Tree for Vastu and Natural Healing and Decorative Showpiece Gemstone Feng Shui Home Office Decor Good Luck Wealth Prosperity Reiki Healing Positive Energy Spiritual Gift (100 Beads, Height 6-7 Inches )",
+        "category": "Sculpture",
+        "price": "\u20b9299",
+        "description": "Discover profound serenity with Lumina's Chakra Tree. This artisan-crafted sculpture, adorned with a spectrum of sacred crystals, meticulously channels harmonious abundance. Elevate your curated space with its radiating positive energy.",
+        "image": "https://images.meesho.com/images/products/395669994/8zz9t_512.jpg",
+        "images": [
+            "https://images.meesho.com/images/products/395669994/8zz9t_512.jpg",
+            "https://images.meesho.com/images/products/395669994/unzcg_512.jpg",
+            "https://images.meesho.com/images/products/395669994/68qnc_512.jpg",
+            "https://images.meesho.com/images/products/395669994/h2gkf_512.jpg"
+        ]
     }
 ];

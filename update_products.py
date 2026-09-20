@@ -1,8 +1,7 @@
 import json
 import re
 import os
-from playwright.sync_api import sync_playwright
-from bs4 import BeautifulSoup
+
 from google import genai
 import math
 
@@ -51,15 +50,30 @@ def save_products(products):
 
 def fetch_meesho_product(url):
     html_content = ""
+    scraper_api_key = os.environ.get("SCRAPER_API_KEY")
+    
+    if not scraper_api_key:
+        print("Error: SCRAPER_API_KEY environment variable not set.")
+        return None
+
     try:
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            page = browser.new_page(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
-            page.goto(url, wait_until='domcontentloaded', timeout=15000)
-            html_content = page.content()
-            browser.close()
+        import requests
+        payload = {'api_key': scraper_api_key, 'url': url, 'premium': 'true'}
+        print(f"Fetching via ScraperAPI...")
+        r = requests.get('http://api.scraperapi.com', params=payload, timeout=60)
+        
+        if r.status_code == 200:
+            html_content = r.text
+        else:
+            print(f"ScraperAPI failed with status code {r.status_code}: {r.text}")
+            return None
+            
     except Exception as e:
-        print(f"Failed to fetch {url} using playwright: {e}")
+        print(f"Failed to fetch {url} using ScraperAPI: {e}")
+        return None
+
+    if "Access Denied" in html_content or "sec-if-cpt-container" in html_content:
+        print(f"Failed to fetch {url}: Blocked by Meesho's Akamai bot protection (CAPTCHA/Access Denied).")
         return None
 
     match = re.search(r'<script id="__NEXT_DATA__" type="application/json">(.+?)</script>', html_content)
@@ -109,7 +123,7 @@ def fetch_meesho_product(url):
             Description: [Your Description]
             """
             result = client.models.generate_content(
-                model='gemini-1.5-flash',
+                model='gemini-2.5-flash',
                 contents=prompt
             )
             text = result.text.strip()
