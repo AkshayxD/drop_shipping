@@ -2,35 +2,35 @@
 const products = [
     {
         id: 1,
-        name: "The Obsidian Chronograph",
-        category: "Timepieces",
-        price: "₹12,499",
-        description: "A masterclass in precision engineering. Features a brushed steel case, sapphire crystal, and an automatic movement designed for the modern gentleman.",
-        image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" // Luxury Watch
+        name: "Handcrafted Kerala Boat Metal Showpiece",
+        category: "Showpieces",
+        price: "₹1,499",
+        description: "An exquisite metal showpiece inspired by the traditional Kerala snake boats. Handcrafted by artisans, it adds a touch of royal heritage to any living space.",
+        image: "https://images.meesho.com/images/products/537185017/1_512.webp"
     },
     {
         id: 2,
-        name: "Verona Emerald Tote",
-        category: "Leather Goods",
-        price: "₹8,999",
-        description: "Crafted from full-grain Italian leather. The Verona Tote offers unparalleled elegance with gold-plated hardware and a spacious suede interior.",
-        image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" // Premium Bag
+        name: "Rajasthani Musician Showpiece (Set of 2)",
+        category: "Showpieces",
+        price: "₹1,299",
+        description: "A beautiful set of two iron handpainted musicians that celebrate Indian classical art. Perfect for elevating your home decor with cultural elegance.",
+        image: "https://images.meesho.com/images/products/254543953/1_512.webp"
     },
     {
         id: 3,
-        name: "Aura Gold Aviators",
-        category: "Eyewear",
-        price: "₹4,299",
-        description: "Polarized lenses set in a lightweight 18k gold-plated frame. Designed to provide 100% UV protection while making a bold statement.",
-        image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" // Sunglasses
+        name: "Black Gold Buddha Statue",
+        category: "Showpieces",
+        price: "₹899",
+        description: "Bring tranquility and minimalist luxury to your home with this Black Gold Buddha statue. Designed to inspire peace and mindfulness.",
+        image: "https://images.meesho.com/images/products/87402599/1_512.webp"
     },
     {
         id: 4,
-        name: "Midnight Silk Robe",
-        category: "Loungewear",
-        price: "₹5,499",
-        description: "Experience true comfort. Made from 100% pure mulberry silk, this robe drapes beautifully and feels cool against the skin.",
-        image: "https://images.unsplash.com/photo-1610410784260-1e582ae44bf2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" // Silk Fabric / Robe aesthetic
+        name: "Seven Chakra Crystal Energy Tree",
+        category: "Showpieces",
+        price: "₹799",
+        description: "A stunning decorative crystal tree designed to channel positive energy and balance. Hand-wired with natural healing stones on a sturdy base.",
+        image: "https://images.meesho.com/images/products/239027670/1_512.webp"
     }
 ];
 
