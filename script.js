@@ -1,10 +1,3 @@
-// Store data
-const storeDetails = {
-    whatsappNumber: "918848833763", // Dummy number, replace with actual
-    storeEmail: "akshayeldhose123@gmail.com", // Dummy email, replace with actual
-    storeName: "Lumina"
-};
-
 // Placeholder Curated Products using Unsplash luxury images
 const products = [
     {
@@ -45,8 +38,7 @@ const products = [
 const productGrid = document.getElementById('product-grid');
 const modal = document.getElementById('checkout-modal');
 const closeBtn = document.querySelector('.close-btn');
-const whatsappBtn = document.getElementById('whatsapp-btn');
-const emailBtn = document.getElementById('email-btn');
+const orderForm = document.getElementById('order-form');
 
 // Modal Elements
 const modalImg = document.getElementById('modal-img');
@@ -83,6 +75,10 @@ function openModal(product) {
     modalPrice.textContent = product.price;
     modalDesc.textContent = product.description;
 
+    // Set hidden form fields
+    document.getElementById('form-product').value = product.name;
+    document.getElementById('form-price').value = product.price;
+
     // Clear inputs
     document.getElementById('customer-name').value = '';
     document.getElementById('customer-address').value = '';
@@ -105,54 +101,43 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// WhatsApp Checkout Logic
-whatsappBtn.addEventListener('click', () => {
-    const { name, address } = getCustomerDetails();
-    if (!name || !address) return;
+// Google Apps Script Web App URL
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxuBzn-u3a8UlmyFmMUjFB3HT0nhOj1h3sOhpVxWyeagElAB6CMFyJsvggbWpW48mpp/exec'; // Replace this with your generated URL
 
-    const message = `Hello ${storeDetails.storeName} Team,%0A%0A` +
-        `I would like to place an order:%0A` +
-        `*Product:* ${currentProduct.name}%0A` +
-        `*Price:* ${currentProduct.price}%0A%0A` +
-        `*Delivery Details:*%0A` +
-        `Name: ${name}%0A` +
-        `Address: ${address}%0A%0A` +
-        `Please confirm my order and let me know the next steps.`;
+// Form Submission Logic (Google Sheets)
+orderForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-    const whatsappUrl = `https://wa.me/${storeDetails.whatsappNumber}?text=${message}`;
-    window.open(whatsappUrl, '_blank');
-});
-
-// Email Checkout Logic
-emailBtn.addEventListener('click', () => {
-    const { name, address } = getCustomerDetails();
-    if (!name || !address) return;
-
-    const subject = encodeURIComponent(`New Order: ${currentProduct.name}`);
-    const body = encodeURIComponent(
-        `Hello ${storeDetails.storeName} Team,\n\n` +
-        `I would like to place an order:\n` +
-        `Product: ${currentProduct.name}\n` +
-        `Price: ${currentProduct.price}\n\n` +
-        `Delivery Details:\n` +
-        `Name: ${name}\n` +
-        `Address: ${address}\n\n` +
-        `Please confirm my order and let me know the next steps.`
-    );
-
-    window.location.href = `mailto:${storeDetails.storeEmail}?subject=${subject}&body=${body}`;
-});
-
-function getCustomerDetails() {
-    const name = document.getElementById('customer-name').value.trim();
-    const address = document.getElementById('customer-address').value.trim();
-
-    if (!name || !address) {
-        alert("Please enter your name and delivery address to continue.");
-        return { name: null, address: null };
+    if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
+        alert("Developer: Please set up the Google Sheet and paste the Web App URL in script.js!");
+        return;
     }
-    return { name, address };
-}
+
+    const submitBtn = document.getElementById('submit-order-btn');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Processing...';
+    submitBtn.disabled = true;
+
+    const formData = new FormData(orderForm);
+
+    fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+    })
+        .then(() => {
+            alert("Order placed successfully! We will contact you shortly to confirm your delivery.");
+            closeModal();
+            orderForm.reset();
+        })
+        .catch((error) => {
+            alert("There was an error placing your order. Please try again.");
+        })
+        .finally(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        });
+});
 
 // Initialize
 renderProducts();
