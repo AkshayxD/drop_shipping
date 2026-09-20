@@ -58,15 +58,24 @@ def fetch_meesho_product(url):
 
     try:
         import requests
-        payload = {'api_key': scraper_api_key, 'url': url, 'premium': 'true'}
-        print(f"Fetching via ScraperAPI...")
-        r = requests.get('http://api.scraperapi.com', params=payload, timeout=60)
+        import time
         
-        if r.status_code == 200:
-            html_content = r.text
-        else:
-            print(f"ScraperAPI failed with status code {r.status_code}: {r.text}")
-            return None
+        for attempt in range(3):
+            payload = {'api_key': scraper_api_key, 'url': url, 'premium': 'true'}
+            
+            print(f"Fetching via ScraperAPI (Attempt {attempt+1}/3)...")
+            r = requests.get('http://api.scraperapi.com', params=payload, timeout=60)
+            
+            if r.status_code == 200:
+                html_content = r.text
+                break
+            else:
+                print(f"ScraperAPI failed with status code {r.status_code}: {r.text}")
+                if attempt < 2:
+                    print("Retrying in 3 seconds...")
+                    time.sleep(3)
+                else:
+                    return None
             
     except Exception as e:
         print(f"Failed to fetch {url} using ScraperAPI: {e}")

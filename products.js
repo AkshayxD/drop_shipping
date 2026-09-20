@@ -79,16 +79,30 @@ const products = [
     },
     {
         "id": "4d5xp5",
-        "name": "De Casa Decor Hot New Geometric Golden Tea Light Candle Holder Showpiece with Gold glass",
-        "category": "Decor",
+        "name": "Gilded Geometric Candle Aura",
+        "category": "Sculptures",
         "price": "\u20b9499",
-        "description": "Name: De Casa Decor Hot New Geometric Golden Tea Light Candle Holder Showpiece with Gold glass\nMaterial: Iron\nType: Figurines\nNet Quantity (N): 1\nProduct Length: 16 cm\nProduct Height: 16 cm\nProduct Breadth: 9 cm\nThis flower vase is made from one Piece of Iron with unique Decorative design. raditional Design Very appealing and Eye Catching Package contains -1pc Flower vase without Flowers.Good-quality and stylish products.Flowers are for illustration purpose not with Vase. Size: Length \u201316CM; Width -12 CM; Height - 22 CM | Material; Metallic Good-quality and stylish products.Flowers are for illustration purpose not with Vase.Great for gifting during weddings, anniversaries, house warming ceremonies, new venture, award ceremonies etc.\n\nCountry of Origin: India",
+        "description": "Meticulously sculpted from fine iron and bathed in a lustrous gilded finish, this geometric masterpiece creates a captivating play of light. Designed to cradle a tea light, its gold-tinted glass diffuses an inviting, warm glow, transforming your space into an oasis of refined ambiance. A striking contemporary accent, it elevates any interior with its radiant presence.",
         "image": "https://images.meesho.com/images/products/263976665/hca9l_512.jpg",
         "images": [
             "https://images.meesho.com/images/products/263976665/hca9l_512.jpg",
             "https://images.meesho.com/images/products/263976665/mgsws_512.jpg",
             "https://images.meesho.com/images/products/263976665/6bqc9_512.jpg",
             "https://images.meesho.com/images/products/263976665/a8kso_512.jpg"
+        ]
+    },
+    {
+        "id": "6jkkx6",
+        "name": "Sacred Chakra Gemstone Bonsai",
+        "category": "Sculptures",
+        "price": "\u20b9299",
+        "description": "Elevate your space with this meticulously handcrafted Lumina sculpture, featuring a vibrant array of seven natural gemstones chosen to align the body's energy centers. Each exquisite facet invites harmony and serenity, transforming any environment into a sanctuary of refined balance. A captivating statement piece, it beautifully merges ancient wisdom with contemporary elegance.",
+        "image": "https://images.meesho.com/images/products/395669994/8zz9t_512.jpg",
+        "images": [
+            "https://images.meesho.com/images/products/395669994/8zz9t_512.jpg",
+            "https://images.meesho.com/images/products/395669994/unzcg_512.jpg",
+            "https://images.meesho.com/images/products/395669994/68qnc_512.jpg",
+            "https://images.meesho.com/images/products/395669994/h2gkf_512.jpg"
         ]
     }
 ];
