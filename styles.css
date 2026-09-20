@@ -453,16 +453,22 @@ footer {
 @media (max-width: 900px) {
     .modal-body {
         flex-direction: column;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
     .modal-image-container {
-        height: 300px;
-        min-height: 300px;
+        height: 350px;
+        min-height: 350px;
+        flex: none;
     }
     .modal-content {
         max-height: 95vh;
+        overflow: hidden;
     }
     .modal-details {
         padding: 2rem;
+        overflow-y: visible;
+        flex: none;
     }
 }
 
