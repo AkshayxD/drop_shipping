@@ -1,42 +1,4 @@
-// Curated Products for Lumina Store
-const products = [
-    {
-        id: 1,
-        name: "Zen Monk Figurine Set (4 Pieces)",
-        category: "Figurines",
-        price: "₹193",
-        description: "A charming set of 4 handcrafted resin monk figurines, each in a unique meditative pose. Perfect for tabletop decoration, these miniature monks bring serenity and a touch of Zen philosophy to your living space. Made from premium quality resin with fine detailing.",
-        image: "https://images.meesho.com/images/products/400197189/7yhqs_512.webp",
-        images: [
-            "https://images.meesho.com/images/products/400197189/7yhqs_512.webp",
-            "images/monk_lifestyle.jpg"
-        ]
-    },
-    {
-        id: 2,
-        name: "Kerala Boat Metal Showpiece with Pen Stand",
-        category: "Showpieces",
-        price: "₹560",
-        description: "Sail into culture with this handcrafted Kerala boat showpiece – complete with traditional paddlers and a built-in metal pen stand. A unique piece of ethnic desk decor, this golden-tone boat blends traditional artistry with daily utility. Dimensions: 10x8 inch.",
-        image: "https://images.meesho.com/images/products/537185017/0wami_512.webp",
-        images: [
-            "https://images.meesho.com/images/products/537185017/0wami_512.webp",
-            "images/boat_lifestyle.jpg"
-        ]
-    },
-    {
-        id: 3,
-        name: "Golden Human Face Sculpture – Resting on Hands",
-        category: "Sculptures",
-        price: "₹488",
-        description: "Transform your living space with this stunning golden resin human face statue, depicted peacefully sleeping on hands. A symbol of relaxation and inner peace, this handcrafted polyresin showpiece makes a meaningful gift for housewarmings, weddings, and special occasions. Size: 14×8×21 cm.",
-        image: "https://images.meesho.com/images/products/533401170/wru59_512.webp",
-        images: [
-            "https://images.meesho.com/images/products/533401170/wru59_512.webp",
-            "images/face_lifestyle.jpg"
-        ]
-    }
-];
+// Products are loaded from products.js
 
 // DOM Elements
 const productGrid = document.getElementById('product-grid');
