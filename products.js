@@ -90,19 +90,5 @@ const products = [
             "https://images.meesho.com/images/products/263976665/6bqc9_512.jpg",
             "https://images.meesho.com/images/products/263976665/a8kso_512.jpg"
         ]
-    },
-    {
-        "id": "6jkkx6",
-        "name": "Seven Chakra Tree Vastu Crystal Stone Bonsai Money Lucky Tree for Vastu and Natural Healing and Decorative Showpiece Gemstone Feng Shui Home Office Decor Good Luck Wealth Prosperity Reiki Healing Positive Energy Spiritual Gift (100 Beads, Height 6-7 Inches )",
-        "category": "Sculpture",
-        "price": "\u20b9299",
-        "description": "Discover profound serenity with Lumina's Chakra Tree. This artisan-crafted sculpture, adorned with a spectrum of sacred crystals, meticulously channels harmonious abundance. Elevate your curated space with its radiating positive energy.",
-        "image": "https://images.meesho.com/images/products/395669994/8zz9t_512.jpg",
-        "images": [
-            "https://images.meesho.com/images/products/395669994/8zz9t_512.jpg",
-            "https://images.meesho.com/images/products/395669994/unzcg_512.jpg",
-            "https://images.meesho.com/images/products/395669994/68qnc_512.jpg",
-            "https://images.meesho.com/images/products/395669994/h2gkf_512.jpg"
-        ]
     }
 ];

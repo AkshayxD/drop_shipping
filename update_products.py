@@ -106,19 +106,21 @@ def fetch_meesho_product(url):
     # AI Enhancement
     category = "Decor"
     premium_desc = original_desc
+    premium_name = original_name
     
     if client:
         try:
             prompt = f"""
             You are a luxury copywriter for a premium home decor brand called 'Lumina'. 
-            Rewrite the following product description to sound luxurious, premium, and appealing.
-            Keep it to 2-3 short sentences.
+            Rewrite the following product description to sound luxurious, premium, and appealing (2-3 short sentences).
+            Provide a short, premium, and elegant Product Title (maximum 4-5 words).
             Also, provide a single 1-2 word category for this product (e.g., 'Figurines', 'Showpieces', 'Lighting', 'Sculptures').
             
             Original Product Name: {original_name}
             Original Description: {original_desc}
             
             Output format MUST BE exactly:
+            Title: [Your Premium Title]
             Category: [Your Category]
             Description: [Your Description]
             """
@@ -128,9 +130,11 @@ def fetch_meesho_product(url):
             )
             text = result.text.strip()
             
+            title_match = re.search(r'Title:\s*(.+)', text, re.IGNORECASE)
             cat_match = re.search(r'Category:\s*(.+)', text, re.IGNORECASE)
             desc_match = re.search(r'Description:\s*(.+)', text, re.IGNORECASE | re.DOTALL)
             
+            if title_match: premium_name = title_match.group(1).strip()
             if cat_match: category = cat_match.group(1).strip()
             if desc_match: premium_desc = desc_match.group(1).strip()
             
@@ -139,7 +143,7 @@ def fetch_meesho_product(url):
 
     return {
         "id": get_product_id(url),
-        "name": original_name,
+        "name": premium_name,
         "category": category,
         "price": f"₹{markup_price}",
         "description": premium_desc,
