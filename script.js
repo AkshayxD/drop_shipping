@@ -4,41 +4,53 @@ const products = [
         id: 1,
         name: "Zen Monk Figurine Set (4 Pieces)",
         category: "Figurines",
-        price: "₹499",
+        price: "₹193",
         description: "A charming set of 4 handcrafted resin monk figurines, each in a unique meditative pose. Perfect for tabletop decoration, these miniature monks bring serenity and a touch of Zen philosophy to your living space. Made from premium quality resin with fine detailing.",
-        image: "https://images.meesho.com/images/products/400197189/7yhqs_512.webp"
+        image: "https://images.meesho.com/images/products/400197189/7yhqs_512.webp",
+        images: [
+            "https://images.meesho.com/images/products/400197189/7yhqs_512.webp",
+            "images/monk_lifestyle.jpg"
+        ]
     },
     {
         id: 2,
         name: "Kerala Boat Metal Showpiece with Pen Stand",
         category: "Showpieces",
-        price: "₹999",
+        price: "₹560",
         description: "Sail into culture with this handcrafted Kerala boat showpiece – complete with traditional paddlers and a built-in metal pen stand. A unique piece of ethnic desk decor, this golden-tone boat blends traditional artistry with daily utility. Dimensions: 10x8 inch.",
-        image: "https://images.meesho.com/images/products/537185017/0wami_512.webp"
+        image: "https://images.meesho.com/images/products/537185017/0wami_512.webp",
+        images: [
+            "https://images.meesho.com/images/products/537185017/0wami_512.webp",
+            "images/boat_lifestyle.jpg"
+        ]
     },
     {
         id: 3,
         name: "Golden Human Face Sculpture – Resting on Hands",
         category: "Sculptures",
-        price: "₹899",
+        price: "₹488",
         description: "Transform your living space with this stunning golden resin human face statue, depicted peacefully sleeping on hands. A symbol of relaxation and inner peace, this handcrafted polyresin showpiece makes a meaningful gift for housewarmings, weddings, and special occasions. Size: 14×8×21 cm.",
-        image: "https://images.meesho.com/images/products/533401170/wru59_512.webp"
+        image: "https://images.meesho.com/images/products/533401170/wru59_512.webp",
+        images: [
+            "https://images.meesho.com/images/products/533401170/wru59_512.webp",
+            "images/face_lifestyle.jpg"
+        ]
     }
 ];
 
 // DOM Elements
 const productGrid = document.getElementById('product-grid');
 const modal = document.getElementById('checkout-modal');
-const closeBtn = document.querySelector('.close-btn');
+const backBtn = document.getElementById('back-btn');
 const orderForm = document.getElementById('order-form');
 
 // Modal Elements
-const modalImg = document.getElementById('modal-img');
 const modalTitle = document.getElementById('modal-title');
 const modalPrice = document.getElementById('modal-price');
 const modalDesc = document.getElementById('modal-desc');
 
 let currentProduct = null;
+let currentImageIndex = 0;
 
 // Inject Products
 function renderProducts() {
@@ -59,10 +71,43 @@ function renderProducts() {
     });
 }
 
+function goToImage(index) {
+    if (!currentProduct) return;
+    const images = document.querySelectorAll('.carousel-img');
+    const dots = document.querySelectorAll('.carousel-dot');
+    
+    if (images[currentImageIndex]) images[currentImageIndex].classList.remove('active');
+    if (dots[currentImageIndex]) dots[currentImageIndex].classList.remove('active');
+    
+    currentImageIndex = index;
+    
+    if (images[currentImageIndex]) images[currentImageIndex].classList.add('active');
+    if (dots[currentImageIndex]) dots[currentImageIndex].classList.add('active');
+}
+
 // Modal Logic
 function openModal(product) {
     currentProduct = product;
-    modalImg.src = product.image;
+    currentImageIndex = 0;
+    
+    // Setup carousel
+    const carousel = document.getElementById('image-carousel');
+    const dotsContainer = document.getElementById('carousel-dots');
+    carousel.innerHTML = '';
+    dotsContainer.innerHTML = '';
+    
+    product.images.forEach((imgSrc, index) => {
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        img.className = index === 0 ? 'carousel-img active' : 'carousel-img';
+        carousel.appendChild(img);
+        
+        const dot = document.createElement('div');
+        dot.className = index === 0 ? 'carousel-dot active' : 'carousel-dot';
+        dot.addEventListener('click', () => goToImage(index));
+        dotsContainer.appendChild(dot);
+    });
+
     modalTitle.textContent = product.name;
     modalPrice.textContent = product.price;
     modalDesc.textContent = product.description;
@@ -79,13 +124,27 @@ function openModal(product) {
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
 }
 
+document.getElementById('carousel-prev').addEventListener('click', () => {
+    if (currentProduct) {
+        const newIndex = (currentImageIndex - 1 + currentProduct.images.length) % currentProduct.images.length;
+        goToImage(newIndex);
+    }
+});
+
+document.getElementById('carousel-next').addEventListener('click', () => {
+    if (currentProduct) {
+        const newIndex = (currentImageIndex + 1) % currentProduct.images.length;
+        goToImage(newIndex);
+    }
+});
+
 function closeModal() {
     modal.classList.remove('active');
     document.body.style.overflow = 'auto';
     currentProduct = null;
 }
 
-closeBtn.addEventListener('click', closeModal);
+backBtn.addEventListener('click', closeModal);
 
 window.addEventListener('click', (e) => {
     if (e.target === modal) {
