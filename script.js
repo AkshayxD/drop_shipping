@@ -48,7 +48,13 @@ function goToImage(index) {
 }
 
 // Modal Logic
-function openModal(product) {
+function openModal(product, skipHistory = false) {
+    if (!skipHistory) {
+        const url = new URL(window.location);
+        url.searchParams.set('product', product.id);
+        window.history.pushState({}, '', url);
+    }
+
     currentProduct = product;
     currentImageIndex = 0;
     
@@ -100,10 +106,16 @@ document.getElementById('carousel-next').addEventListener('click', () => {
     }
 });
 
-function closeModal() {
+function closeModal(skipHistory = false) {
     modal.classList.remove('active');
     document.body.style.overflow = 'auto';
     currentProduct = null;
+
+    if (!skipHistory) {
+        const url = new URL(window.location);
+        url.searchParams.delete('product');
+        window.history.pushState({}, '', url);
+    }
 }
 
 backBtn.addEventListener('click', closeModal);
@@ -154,6 +166,28 @@ orderForm.addEventListener('submit', (e) => {
 
 // Initialize
 renderProducts();
+
+// Check if URL has a product ID and open it automatically
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get('product');
+if (productId) {
+    const productToOpen = products.find(p => p.id === productId);
+    if (productToOpen) {
+        openModal(productToOpen, true);
+    }
+}
+
+// Handle browser back/forward buttons for modal routing
+window.addEventListener('popstate', () => {
+    const params = new URLSearchParams(window.location.search);
+    const pId = params.get('product');
+    if (pId) {
+        const pToOpen = products.find(p => p.id === pId);
+        if (pToOpen) openModal(pToOpen, true);
+    } else if (modal.classList.contains('active')) {
+        closeModal(true);
+    }
+});
 
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
